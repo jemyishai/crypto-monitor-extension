@@ -1,0 +1,17 @@
+emcc src/wasm/crypto_monitor.cpp \
+  -o dist/crypto_monitor.js \
+  -s WASM=1 \
+  -s EXPORTED_RUNTIME_METHODS='["ccall", "cwrap"]' \
+  -s ALLOW_MEMORY_GROWTH=1 \
+  -s NO_EXIT_RUNTIME=1 \
+  -s ASSERTIONS=1 \
+  -s DISABLE_EXCEPTION_CATCHING=0 \
+  -s SAFE_HEAP=1 \
+  -s WASM_BIGINT=1 \
+  -s USE_PTHREADS=0 \
+  -s ENVIRONMENT='web' \
+  -s MODULARIZE=1 \
+  -s EXPORT_NAME='createModule' \
+  -s EXPORTED_FUNCTIONS='["_malloc", "_free"]' \
+  -lembind \
+  -O3
